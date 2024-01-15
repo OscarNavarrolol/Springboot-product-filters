@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+</head>
+<body>
+<div class="mt-4 d-flex justify-content-center align-items-center">
+    <h1 class="text-center fw-bold display-4">List products</h1>
+</div>
+<div>
+    <br>
+</div>
+<div class="table-container mt-3">
+    <table class="table table-hover table-sm table-bordered">
+        <thead class="table-info">
+        <tr class="table-info">
+            <th class="text-center">ID</th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Brand</th>
+            <th class="text-center">Made in</th>
+            <th class="text-center">Price</th>
+            <th class="text-center">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  th:each="product : ${products}" class="table-light">
+            <td th:text="${product.id}" class="text-center"></td>
+            <td th:text="${product.name}" class="text-center"></td>
+            <td th:text="${product.brand}" class="text-center"></td>
+            <td th:text="${product.madeIn}" class="text-center"></td>
+            <td th:text="${product.price}" class="text-center"></td>
+            <td class="text-center">
+                <a th:href="@{/delete/{id}(id=${product.id})}" onclick="deleteContact(this)" class="btn btn-danger"><i class="fas fa-trash-alt"></i>&nbsp;Delete</a>
+                <form th:action="@{/delete/{id}(id=${product.id})}" method="post"></form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row mt-3">
+    <div class="col-lg-6 text-end">
+        <a th:href="@{/new}" class="text-center btn btn-primary btn-sm mb3" >
+            add Product
+        </a>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha384-bT5KzTflZ03yHxIepcahqJyP4LGJYb3f3t7zvWRS6dsqzq4KtZgfkGH3LlO8i1T" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-GLhlTQ8iKu16H/J9Q97BznE+huT8KJrxF6b8vFhMz6VrP8egD6NA6ZbvlznZENo1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-GLhlTQ8iKu16H/J9Q97BznE+huT8KJrxF6b8vFhMz6VrP8egD6NA6ZbvlznZENo1" crossorigin="anonymous"></script>
+<script>
+    function deleteContact(element){
+        var ok = confirm("Do you want to delete this contact?")
+
+        if (ok){
+            element.nextElementSibling.submit();
+        }
+    }
+</script>
+</body>
+</html>
