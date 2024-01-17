@@ -29,7 +29,7 @@ public class Product {
     @NotBlank(message = "Please type the brand")
     String brand;
 
-    @Column(nullable = false, length = 60)
+    @Column(name = "made_in",nullable = false, length = 60)
     @NotBlank(message = "Please type the madein")
     String madeIn;
 
