@@ -1,6 +1,6 @@
 # Spring Boot Project with Search, MySQL, Thymeleaf, and Validations
 
-This is a sample Spring Boot project that includes a search filter, integration with a MySQL database, basic design using HTML and Thymeleaf, and validations using Spring Data JPA. Additionally, DevTools and Spring Web have been incorporated to facilitate development.
+This is a sample Spring Boot project made for me , that includes a search filter, integration with a MySQL database, basic design using HTML and Thymeleaf, and validations using Spring Data JPA. Additionally, DevTools and Spring Web have been incorporated to facilitate development.
 
 ## Requirements
 
